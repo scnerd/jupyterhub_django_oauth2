@@ -1,0 +1,5 @@
+# Base Django (using 2.X)
+django>2
+# OAuth2 provider
+django-oauth-toolkit
+django-cors-middleware
