@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import oauth2_provider.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
