@@ -17,7 +17,8 @@ services:
     volumes:
       - './oauth:/oauth'
     environment:
-      OAUTH2_TOKEN_URL: http://localhost:8000/o/token
-      OAUTH2_AUTHORIZE_URL: http://localhost:8000/o/authorize
+      OAUTH2_USERDATA_URL: http://django:8000/whoami
+      OAUTH2_TOKEN_URL: http://django:8000/o/token/
+      OAUTH2_AUTHORIZE_URL: http://localhost:8000/o/authorize/
       OAUTH_CLIENT_ID_PATH: /oauth/id
       OAUTH_CLIENT_SECRET_PATH: /oauth/secret

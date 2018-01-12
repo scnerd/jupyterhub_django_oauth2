@@ -15,9 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import oauth2_provider.urls
+from oauth2_provider.decorators import protected_resource
+from django.http import HttpResponse
+import json
+
+
+@protected_resource()
+def get_user(request):
+    user = request.user
+    return HttpResponse(
+        json.dumps({
+            'username': user.username,
+            'email': user.email}),
+        content_type='application/json')
 
 urlpatterns = [
+    path('whoami/', get_user),
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider'))
 ]
